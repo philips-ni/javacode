@@ -1,7 +1,5 @@
 package string;
 
-import array.BB_014_Anagrams;
-
 /**
  * BB.String.006 Anagrams
  * 

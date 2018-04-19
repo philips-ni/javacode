@@ -1,6 +1,6 @@
 package recursion;
 
-import foundation.BSTNode;
+import foundation.BTNode;
 
 /**
  * BB.Recursion.010 Binary search tree verification
@@ -21,37 +21,37 @@ import foundation.BSTNode;
  */
 public class BB_010_Binary_Search_Tree {
 
-	public static boolean isBST(BSTNode n, int min, int max) {
+	public static boolean isBST(BTNode n, int min, int max) {
 		if(n == null) return true;
 		if(n.val<min || n.val > max) return false;
 		return isBST(n.left,min,n.val) && isBST(n.right,n.val+1,max);
 	}
 	public static void main(String[] args) {
-		BSTNode root = new BSTNode();
+		BTNode root = new BTNode();
 		root.val = 5;
 		
-		BSTNode n1 = new BSTNode();
+		BTNode n1 = new BTNode();
 		n1.val = 3;
 		
-		BSTNode n2 = new BSTNode();
+		BTNode n2 = new BTNode();
 		n2.val = 7;
 		
 		root.left = n1;
 		root.right = n2;
 		
-		BSTNode n3 = new BSTNode();
+		BTNode n3 = new BTNode();
 		n3.val = 1;
 		
-		BSTNode n4 = new BSTNode();
+		BTNode n4 = new BTNode();
 		n4.val = 4;
 		
 		n1.left=n3;
 		n1.right=n4;
 		
-		BSTNode n5 = new BSTNode();
+		BTNode n5 = new BTNode();
 		n5.val=6;
 		
-		BSTNode n6 = new BSTNode();
+		BTNode n6 = new BTNode();
 		n6.val=8;
 		
 		n2.left=n5;
@@ -59,5 +59,4 @@ public class BB_010_Binary_Search_Tree {
 		
 		System.out.println(isBST(root,Integer.MIN_VALUE,Integer.MAX_VALUE));
 	}
-
 }

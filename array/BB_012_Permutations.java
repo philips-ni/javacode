@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * BB.Array.12 Permutations
+ * BB.Array.012 Permutations
  * 
  * Description: Write a function that returns all permutations of a given
  * list.
@@ -15,9 +15,6 @@ import java.util.Arrays;
  * 
  * Output: [1, 2, 3],[1, 3, 2],[2, 1, 3],[2, 3, 1],[3, 1, 2],[3, 2, 1]
  * 
- * @param nums
- *            Given list.
- * @return A list includes all permutations of given list.
  */
 public class BB_012_Permutations {
 
@@ -42,6 +39,7 @@ public class BB_012_Permutations {
 			temp.remove(temp.size() - 1);
 		}
 	}
+	
 	public static void main(String[] args) {
 		int[] pa = { 1, 2, 3 };
 		ArrayList<ArrayList<Integer>> results = permutation(pa);

@@ -11,9 +11,9 @@ import java.util.HashSet;
  *
  * e.g.
  *
- * dictionary: [“a”, “aa”, “aaa”] query: “abc”
+ * dictionary: ["a","aa","aaa"], "naaa"
  * 
- * output: 2
+ * output: 1
  * 
  */
 public class BB_002_String_Deletion {

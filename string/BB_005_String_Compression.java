@@ -13,13 +13,13 @@ import java.lang.StringBuilder;
  * 
  * e.g.
  * 
- * compress(“a”) = "a"
+ * compress("a") = "a"
  * 
- * compress(“aaa”) = "a3"
+ * compress("aaa") = "a3"
  * 
- * compress(“aaabbb”) = "a3b3"
+ * compress("aaabbb") = "a3b3"
  * 
- * compress(“aaabccc”) = "a3b1c3"
+ * compress("aaabccc") = "a3b1c3"
  *
  */
 public class BB_005_String_Compression {

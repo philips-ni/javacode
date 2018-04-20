@@ -20,7 +20,7 @@ import foundation.LinkedListNode;
  * 
  * Input: "abc"
  * 
- * Output: "abc",
+ * Output: "abc","acb","bac","bca","cab","cba"
  * 
  */
 public class BB_004_Permutations {
@@ -33,6 +33,7 @@ public class BB_004_Permutations {
 
 	private static void permutations(String prefix, String suffix, ArrayList<String> results) {
 		if (suffix.isEmpty()) {
+			System.out.println(prefix);
 			results.add(prefix);
 		} else {
 			for (int i = 0; i < suffix.length(); i++) {

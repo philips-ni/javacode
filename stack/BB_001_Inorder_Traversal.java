@@ -1,6 +1,7 @@
 package stack;
 
 import foundation.BTNode;
+import java.util.Stack;
 
 /**
  * BB.Stack.001 Inorder traversal
@@ -25,6 +26,32 @@ public class BB_001_Inorder_Traversal {
 
 	public static void inorder(BTNode n) {
 
+		if (n.left != null)
+			inorder(n.left);
+
+		System.out.println(n.val);
+
+		if (n.right != null)
+			inorder(n.right);
+
+	}
+ 
+	public static void inorder_stack(BTNode n) {
+
+		Stack<BTNode> st = new Stack<BTNode>();
+		addToStack(st, n);
+		while (!st.isEmpty()) {
+			BTNode cur = st.pop();
+			System.out.println(cur.val);
+			addToStack(st, cur.right);
+		}
+	}
+
+	private static void addToStack(Stack<BTNode> st, BTNode n) {
+		while (n != null) {
+			st.push(n);
+			n = n.left;
+		}
 	}
 
 	public static void main(String[] args) {
@@ -54,10 +81,9 @@ public class BB_001_Inorder_Traversal {
 		n6.val = 8;
 		n2.left = n5;
 		n2.right = n6;
-		
+
 		inorder(root);
-		
-		
+		inorder_stack(root);
 	}
 
 }

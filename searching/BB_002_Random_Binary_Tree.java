@@ -1,14 +1,15 @@
-package tree;
+package searching;
 
 import java.util.Random;
 
 /**
- * BB.Tree.003 Random Binary Tree
+ * BB.Searching.002 Random Binary Tree
  * 
  * Question : Implement a binary tree with a method getRandomNode() that returns
  * a random node.
+ * 
  */
-public class BB_003_Random_Binary_Tree {
+public class BB_002_Random_Binary_Tree {
 	private class Node {
 		Node left;
 		Node right;
@@ -91,7 +92,7 @@ public class BB_003_Random_Binary_Tree {
 	}
 
 	public static void main(String[] args) {
-		BB_003_Random_Binary_Tree sol = new BB_003_Random_Binary_Tree();
+		BB_002_Random_Binary_Tree sol = new BB_002_Random_Binary_Tree();
 		sol.getRandomNode();
 	}
 }

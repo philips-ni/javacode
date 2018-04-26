@@ -1,10 +1,10 @@
-package tree;
+package searching;
 
 import java.util.List;
 import java.util.ArrayList;
 
 /**
- * BB.Tree.004 Lowest Common Ancestor
+ * BB.Searching.004 Lowest Common Ancestor
  *
  * Question : Given two nodes in a binary tree, write a function to find the
  * lowest common ancestor.

@@ -1,7 +1,7 @@
-package array;
+package searching;
 
 /**
- * BB.Array.009 Matrix Search
+ * BB.Searching.005 Matrix Search
  * 
  * Question: Given an nxm array where all rows and columns are in sorted order,
  * write a function to determine whether the array contains an element x.
@@ -13,7 +13,7 @@ package array;
  * Output: contains(arr,5)=true
  * 
  */
-public class BB_009_Matrix_Search {
+public class BB_005_Matrix_Search {
 	public static boolean contains_bf(int[][] arr, int x) {
 
 		if (arr.length == 0 || arr[0].length == 0)

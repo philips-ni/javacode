@@ -1,11 +1,12 @@
-package tree;
+package searching;
 
 import foundation.BTNode;
 import java.util.Queue;
 import java.util.LinkedList;
 
 /**
- * BB.Tree.008 Tree Level Order
+ * 
+ * BB.Searching.007 Tree Level Order
  * 
  * Question : Given a tree, write a function that prints out the nodes of the
  * tree in level order.
@@ -21,7 +22,7 @@ import java.util.LinkedList;
  * traverse(tree) = 1 2 3 4 5 6 7
  *
  */
-public class BB_008_Tree_Level_Order {
+public class BB_007_Tree_Level_Order {
 
 	public static void treeLevelOrder(BTNode node) {
 		Queue<BTNode> qu = new LinkedList<BTNode>();

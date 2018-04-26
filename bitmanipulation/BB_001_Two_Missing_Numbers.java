@@ -3,7 +3,7 @@ package bitmanipulation;
 import java.util.Arrays;
 
 /**
- * BB.Bitmanipulation.001 Two Missing Numbers
+ * BB.BitManipulation.001 Two Missing Numbers
  *
  * Question : Given an array containing all the numbers from 1 to n except two,
  * find the two missing numbers.

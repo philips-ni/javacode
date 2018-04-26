@@ -1,4 +1,4 @@
-package tree;
+package bitmanipulation;
 
 /**
  * BB.BitManipulation.004 Swap Variables

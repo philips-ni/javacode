@@ -76,28 +76,27 @@ public class BB_001_Two_Missing_Numbers {
 		return new int[] { totalLeftXor ^ arrLeftXor, totalRightXor ^ arrRightXor };
 	}
 
-	public static int[] twoMissing_1(int[] arr) {
+	public static int[] twoMissing_hash(int[] arr) {
 		int[] missing = new int[2];
+		int k = 0;
 
-		int i = 1;
-		int j = 0, k = 0;
+		boolean[] fullArr = new boolean[arr.length + 2];
 
-		while (j < arr.length) {
-			if (arr[j] == i) {
-				i++;
-				j++;
-			} else {
-				missing[k++] = i++;
-			}
+		for (int i = 0; i < arr.length; i++) {
+			fullArr[arr[i] - 1] = true;
+		}
+		for (int i = 0; i < fullArr.length; i++) {
+			if (!fullArr[i])
+				missing[k++] = i + 1;
 		}
 		return missing;
 	}
 
 	public static void main(String[] args) {
-		int[] arr = { 2, 3, 5, 6 };
+		int[] arr = { 4, 2, 3 };
 
 		System.out.println(Arrays.toString(twoMissing(arr)));
-		System.out.println(Arrays.toString(twoMissing_1(arr)));
+		System.out.println(Arrays.toString(twoMissing_hash(arr)));
 	}
 
 }

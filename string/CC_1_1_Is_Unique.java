@@ -3,6 +3,9 @@ package string;
 import java.util.Arrays;
 
 /**
+ * 
+ * CC.1.1 Is Unique
+ * 
  * Question : Implement an algorithm to determine if a string has all unique
  * characters. What if you cannot use additional data structure?
  *

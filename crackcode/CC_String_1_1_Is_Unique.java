@@ -1,4 +1,4 @@
-package string;
+package crackcode;
 
 import java.util.Arrays;
 
@@ -10,7 +10,7 @@ import java.util.Arrays;
  * characters. What if you cannot use additional data structure?
  *
  */
-public class CC_1_1_Is_Unique {
+public class CC_String_1_1_Is_Unique {
 
 	public static boolean isUnique(String s) {
 		for (int i = 0; i < s.length(); i++) {

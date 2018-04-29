@@ -4,13 +4,13 @@ import java.util.Arrays;
 
 /**
  * 
- * CC.1.1 Is Unique
+ * CC.ArrayString.1.1 Is Unique
  * 
  * Question : Implement an algorithm to determine if a string has all unique
  * characters. What if you cannot use additional data structure?
  *
  */
-public class CC_String_1_1_Is_Unique {
+public class CC_ArrayString_1_1_Is_Unique {
 
 	public static boolean isUnique(String s) {
 		for (int i = 0; i < s.length(); i++) {

@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 /**
  * 
- * CC.String.1.2 Check Permutation
+ * CC.ArrayString.1.2 Check Permutation
  * 
  * Question : Given two strings, write a method to decide if one is a
  * permutation of the other.
@@ -19,7 +19,7 @@ import java.util.Arrays;
  * 2. Definition - Two words with same character counts
  * 
  */
-public class CC_String_1_2_Check_Permutation {
+public class CC_ArrayString_1_2_Check_Permutation {
 
 	public static String sort(String s) {
 		char[] c = s.toCharArray();

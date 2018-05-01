@@ -19,7 +19,7 @@ public class CC_ArrayString_1_9_String_Rotation {
 			if (s1.charAt(i) != s2.charAt(0))
 				continue;
 
-			if (s1.substring(i, i + s2.length()).equals(s2))
+			if (s1.substring(i, i + s2.length()).equals(s2)) //== tests object references, .equals() tests the string values
 				return true;
 		}
 		return false;

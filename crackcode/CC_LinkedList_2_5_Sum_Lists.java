@@ -12,7 +12,7 @@ import foundation.LinkedListNode;
  * 
  * e.g.
  * 
- * Input : (7 -> 1 -> 6) + (5 -> 9-> 2>)
+ * Input : (7 -> 1 -> 6) + (5 -> 9 -> 2)
  * 
  * Output : 2 -> 1 -> 9. That is 617+295=912
  * 
@@ -77,9 +77,55 @@ public class CC_LinkedList_2_5_Sum_Lists {
 		return head;
 	}
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	public static LinkedListNode reverseList(LinkedListNode n) {
+		LinkedListNode head = null;
+		LinkedListNode first = null;
 
+		while (n != null) {
+			first = n;
+			n = n.next;
+			first.next = head;
+			head = first;
+		}
+		return head;
+	}
+
+	public static LinkedListNode sumLists_forward(LinkedListNode n1,LinkedListNode n2) {
+		LinkedListNode r1 = reverseList(n1);
+		LinkedListNode r2 = reverseList(n2);
+		return sumLists(r1, r2);
+	}
+
+	public static void main(String[] args) {
+		LinkedListNode n1 = new LinkedListNode(7);
+		LinkedListNode n2 = new LinkedListNode(1);
+		LinkedListNode n3 = new LinkedListNode(6);
+		LinkedListNode n4 = new LinkedListNode(5);
+		LinkedListNode n5 = new LinkedListNode(9);
+		LinkedListNode n6 = new LinkedListNode(2);
+
+		n1.next = n2;
+		n2.next = n3;
+
+		n4.next = n5;
+		n5.next = n6;
+
+		common.Helper.printLinkedList(sumLists(n1, n4));
+
+		LinkedListNode n7 = new LinkedListNode(6);
+		LinkedListNode n8 = new LinkedListNode(1);
+		LinkedListNode n9 = new LinkedListNode(7);
+		LinkedListNode n10 = new LinkedListNode(2);
+		LinkedListNode n11 = new LinkedListNode(9);
+		LinkedListNode n12 = new LinkedListNode(5);
+
+		n7.next = n8;
+		n8.next = n9;
+
+		n10.next = n11;
+		n11.next = n12;
+
+		common.Helper.printLinkedList(sumLists_forward(n7,n10));
 	}
 
 }

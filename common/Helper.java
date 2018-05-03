@@ -11,7 +11,7 @@ public class Helper {
 		System.out.println("");
 	}
 	
-	public static LinkedListNode reverseList(LinkedListNode n) {
+	public static LinkedListNode reverseList_bad(LinkedListNode n) {
 		LinkedListNode head = null;
 		LinkedListNode first = null;
 
@@ -20,6 +20,18 @@ public class Helper {
 			n = n.next;
 			first.next = head;
 			head = first;
+		}
+		return head;
+	}
+	
+	public static LinkedListNode reverseList(LinkedListNode n) {
+		LinkedListNode head = null;
+
+		while (n != null) {
+			LinkedListNode current = new LinkedListNode(n.value); // clone a new node. Not impact original list.
+			current.next = head;
+			head = current;
+			n = n.next;
 		}
 		return head;
 	}

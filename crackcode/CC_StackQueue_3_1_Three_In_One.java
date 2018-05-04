@@ -11,7 +11,7 @@ import java.util.EmptyStackException;
  * Fixed division and Flexible division.
  * 
  */
-public class CC_StackQueue_1_1_Three_In_One {
+public class CC_StackQueue_3_1_Three_In_One {
 
 	public class FixedMultiStack {
 		private int numStacks = 3;

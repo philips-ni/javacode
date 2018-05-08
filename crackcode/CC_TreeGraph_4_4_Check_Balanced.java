@@ -15,7 +15,7 @@ public class CC_TreeGraph_4_4_Check_Balanced {
 
 	private static int getHeight(BTNode n) {
 		if (n == null)
-			return 0;
+			return 0 ;
 		return Math.max(getHeight(n.left), getHeight(n.right)) + 1;
 	}
 

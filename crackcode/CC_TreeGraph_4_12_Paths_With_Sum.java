@@ -10,6 +10,16 @@ import foundation.BTNode;
  * number of paths that sum to a given value. The path does not need to start or
  * end at the root or a leaf, but it must go downwards(traveling only from
  * parent nodes to child nodes).
+ * 
+ * e.g.
+ * 
+ *                10
+ *               /  \ 
+ *              5   -3
+ *             / \    \
+ *            3   2   11
+ *           / \            
+ *          3  -2
  *
  */
 public class CC_TreeGraph_4_12_Paths_With_Sum {

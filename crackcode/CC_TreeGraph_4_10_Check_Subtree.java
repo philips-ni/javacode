@@ -22,7 +22,7 @@ public class CC_TreeGraph_4_10_Check_Subtree {
 		getOrderString(n1, s1);
 		getOrderString(n2, s2);
 
-		return s1.indexOf(s2.toString()) != -1;
+		return s1.indexOf(s2.toString()) != -1; 
 
 	}
 

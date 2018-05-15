@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * bottom right.
  *
  */
-public class CC_Recursion_6_2_Robot_In_Grid {
+public class CC_Recursion_8_2_Robot_In_Grid {
 
 	private class Point {
 		int x;
@@ -75,7 +75,7 @@ public class CC_Recursion_6_2_Robot_In_Grid {
 	}
 
 	public static void main(String[] args) {
-		CC_Recursion_6_2_Robot_In_Grid test = new CC_Recursion_6_2_Robot_In_Grid();
+		CC_Recursion_8_2_Robot_In_Grid test = new CC_Recursion_8_2_Robot_In_Grid();
 		System.out.println(test.getPath(4, 4));
 		test.printPath();
 	}

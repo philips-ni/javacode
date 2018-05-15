@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * CC.Recursion.6.3 Subset
+ * CC.Recursion.8.4 Subset
  * 
  * Question : Write a method that returns all subsets of a set.
  *
  */
-public class CC_Recursion_6_3_subset {
+public class CC_Recursion_8_4_subset {
 
 	private ArrayList<Integer[]> results = new ArrayList<Integer[]>();
 	
@@ -41,7 +41,7 @@ public class CC_Recursion_6_3_subset {
 	}
 	
 	public static void main(String[] args) {
-		CC_Recursion_6_3_subset test = new CC_Recursion_6_3_subset();
+		CC_Recursion_8_4_subset test = new CC_Recursion_8_4_subset();
 		int[] arr = { 1, 2, 3 };
 		test.subset(arr);
 		test.printResults();

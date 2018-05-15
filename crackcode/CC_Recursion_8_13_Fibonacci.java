@@ -6,7 +6,7 @@ package crackcode;
  * Question : Write a method to generate the nth Fibonacci number.
  *
  */
-public class CC_Recursion_6_1_Fibonacci {
+public class CC_Recursion_8_13_Fibonacci {
 
 	public static int fib(int n) {
 		if (n == 0)

@@ -22,7 +22,7 @@ import java.util.Stack;
  * stacks.
  *
  */
-public class CC_Recursion_8_5_Hanoi {
+public class CC_Recursion_8_6_Hanoi {
 
 	public class Tower {
 		private Stack<Integer> disks;
@@ -81,7 +81,7 @@ public class CC_Recursion_8_5_Hanoi {
 	}
 
 	public static void main(String[] args) {
-		CC_Recursion_8_5_Hanoi test = new CC_Recursion_8_5_Hanoi();
+		CC_Recursion_8_6_Hanoi test = new CC_Recursion_8_6_Hanoi();
 		test.moveDisks();
 	}
 

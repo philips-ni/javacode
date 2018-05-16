@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * BB.Recursion.009 Permutations

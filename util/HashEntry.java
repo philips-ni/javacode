@@ -1,4 +1,4 @@
-package foundation;
+package util;
 
 public class HashEntry {
 	private int key;

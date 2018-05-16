@@ -1,4 +1,4 @@
-package foundation;
+package util;
 
 public class OpenAddressingHashTable {
 	private final static int TABLE_SIZE = 128;

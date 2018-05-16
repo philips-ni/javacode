@@ -1,6 +1,6 @@
 package linkedlist;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * BB.LinkedList.009 Nth-to-last Element in a Linked List

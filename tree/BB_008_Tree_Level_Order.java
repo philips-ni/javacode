@@ -1,7 +1,9 @@
 package tree;
 
-import foundation.BTNode;
 import java.util.Queue;
+
+import util.BTNode;
+
 import java.util.LinkedList;
 
 /**

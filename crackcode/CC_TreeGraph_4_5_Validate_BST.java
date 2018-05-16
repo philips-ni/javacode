@@ -1,7 +1,8 @@
 package crackcode;
 
-import foundation.BTNode;
 import java.util.ArrayList;
+
+import util.BTNode;
 
 /**
  * CC.TreeGraph.4.5 Validate BST

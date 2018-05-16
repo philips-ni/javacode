@@ -1,7 +1,8 @@
 package crackcode;
 
-import foundation.LinkedListNode;
 import java.util.HashSet;
+
+import util.LinkedListNode;
 
 /**
  * CC.LinkedList.2.1 Remove Dups

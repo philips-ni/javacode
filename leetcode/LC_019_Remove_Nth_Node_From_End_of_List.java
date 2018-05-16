@@ -1,6 +1,6 @@
 package leetcode;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * LC.LinkedList.019 Remove Nth Node From End of List

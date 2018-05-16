@@ -2,7 +2,7 @@ package linkedlist;
 
 import java.util.HashSet;
 import common.Helper;
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * BB.LinkedList.003 Dedup the LinkedList

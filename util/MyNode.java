@@ -1,4 +1,4 @@
-package foundation;
+package util;
 
 public class MyNode {
 	private int value;

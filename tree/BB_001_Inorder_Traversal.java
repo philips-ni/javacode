@@ -1,7 +1,8 @@
 package tree;
 
-import foundation.BTNode;
 import java.util.Stack;
+
+import util.BTNode;
 
 /**
  * BB.Tree.001 Inorder traversal

@@ -1,4 +1,4 @@
-package foundation;
+package util;
 
 import java.util.LinkedList;
 import java.util.Stack;

@@ -1,6 +1,6 @@
 package common;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 public class Helper {
 	public static void printLinkedList(LinkedListNode n) {

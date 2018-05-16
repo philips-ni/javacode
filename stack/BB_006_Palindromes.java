@@ -1,7 +1,8 @@
 package stack;
 
 import java.util.Stack;
-import foundation.LinkedListNode;
+
+import util.LinkedListNode;
 
 /**
  * BB.Stack.006 Palindromes

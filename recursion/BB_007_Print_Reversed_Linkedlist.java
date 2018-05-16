@@ -1,5 +1,5 @@
 package recursion;
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * BB.Recursion.007 Print reversed linked list

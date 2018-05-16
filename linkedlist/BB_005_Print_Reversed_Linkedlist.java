@@ -1,7 +1,7 @@
 package linkedlist;
 
 import common.Helper;
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * BB.LinkedList.005 Print reversed linked list

@@ -1,9 +1,9 @@
 package crackcode;
 
-import foundation.BTNode;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
+
+import util.BTNode;
 
 /**
  * CC.TreeGraph.4.3 List Of Depths

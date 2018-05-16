@@ -1,6 +1,6 @@
 package leetcode;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * 

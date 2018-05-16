@@ -1,6 +1,6 @@
 package tree;
 
-import foundation.BTNode;
+import util.BTNode;
 
 /**
  * BB.Tree.009 Binary search tree verification

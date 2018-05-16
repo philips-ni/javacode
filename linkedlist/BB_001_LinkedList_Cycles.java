@@ -2,7 +2,7 @@ package linkedlist;
 
 import java.util.HashSet;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * BB.LinkedList.001 Linked List cycles

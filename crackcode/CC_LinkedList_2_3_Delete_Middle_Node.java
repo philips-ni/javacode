@@ -1,6 +1,6 @@
 package crackcode;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * CC.LinkedList.2.3 Delete Middle Node

@@ -2,7 +2,7 @@ package linkedlist;
 
 import java.util.Stack;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * BB.LinkedList.006 Palindromes

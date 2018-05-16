@@ -2,7 +2,7 @@ package crackcode;
 
 import java.util.Stack;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * CC.LinkedList.2.6 Palindrome

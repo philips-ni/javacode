@@ -1,7 +1,8 @@
 package stack;
 
-import foundation.BTNode;
 import java.util.Stack;
+
+import util.BTNode;
 
 /**
  * BB.Stack.001 Inorder traversal

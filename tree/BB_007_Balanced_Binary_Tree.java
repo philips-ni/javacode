@@ -1,6 +1,6 @@
 package tree;
 
-import foundation.BTNode;
+import util.BTNode;
 
 /**
  * 

@@ -1,6 +1,6 @@
 package crackcode;
 
-import foundation.BTNode;
+import util.BTNode;
 
 /**
  * CC.TreeGraph.4.6 Successor

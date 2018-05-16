@@ -1,6 +1,6 @@
 package leetcode;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * LC.LinkedList.021 Merge Two Sorted Lists

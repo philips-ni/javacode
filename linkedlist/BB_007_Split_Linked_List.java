@@ -1,6 +1,6 @@
 package linkedlist;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * BB.LinkedList.007 Split a linked list

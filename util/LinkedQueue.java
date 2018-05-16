@@ -1,4 +1,4 @@
-package foundation;
+package util;
 
 public class LinkedQueue<T> {
 	private static class QueueNode<T> {

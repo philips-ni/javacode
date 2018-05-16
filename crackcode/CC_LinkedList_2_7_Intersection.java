@@ -1,6 +1,6 @@
 package crackcode;
 
-import foundation.LinkedListNode;
+import util.LinkedListNode;
 
 /**
  * CC.LinkedList.2.7 Intersection

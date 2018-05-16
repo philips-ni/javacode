@@ -1,6 +1,6 @@
 package recursion;
 
-import foundation.BTNode;
+import util.BTNode;
 
 /**
  * BB.Recursion.010 Binary search tree verification

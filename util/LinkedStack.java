@@ -1,4 +1,4 @@
-package foundation;
+package util;
 
 public class LinkedStack<T> {
 	private static class StackNode<T>{

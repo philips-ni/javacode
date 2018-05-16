@@ -10,8 +10,8 @@ package crackcode;
 public class CC_Recursion_8_11_Coins {
 
 	public static int makeChange(int x, int[] coins, int index) {
-		if (index >= coins.length - 1) // reach the last coin 
-			return 1; 
+		if (index >= coins.length - 1) // reach the last coin
+			return 1;
 
 		int coin = coins[index];
 
@@ -19,7 +19,7 @@ public class CC_Recursion_8_11_Coins {
 
 		for (int i = 0; i * coin <= x; i++) {
 			int remaining = x - i * coin;
-			ways += makeChange( remaining, coins, index + 1);
+			ways += makeChange(remaining, coins, index + 1);
 		}
 
 		return ways;
@@ -43,7 +43,7 @@ public class CC_Recursion_8_11_Coins {
 
 		for (int i = 0; i * coin <= x; i++) {
 			int remaining = x - i * coin;
-			ways += makeChange_dp(remaining,coins, index + 1, map);
+			ways += makeChange_dp(remaining, coins, index + 1, map);
 		}
 
 		map[x][index] = ways;
@@ -52,7 +52,7 @@ public class CC_Recursion_8_11_Coins {
 
 	public static void main(String[] args) {
 		int[] coins = { 25, 10, 5, 1 };
-		System.out.println(makeChange(10,coins,0));
-		System.out.println(makeChange_dp(10,coins));
+		System.out.println(makeChange(10, coins, 0));
+		System.out.println(makeChange_dp(10, coins));
 	}
 }

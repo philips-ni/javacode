@@ -9,22 +9,31 @@ package crackcode;
  */
 public class CC_Recursion_8_11_Coins {
 
-	public static int makeChange(int[] coins, int target) {
+	public static int makeChange(int x, int[] coins, int index) {
+		if (index >= coins.length - 1) // reach the last coin 
+			return 1; 
 
-		if (target == 0)
-			return 1;
+		int coin = coins[index];
 
 		int ways = 0;
-		for (int coin : coins) {
-			if (target - coin >= 0) {
-				ways += makeChange(coins, target - coin);
-			}
+
+		for (int i = 0; i * coin <= x; i++) {
+			int remaining = x - i * coin;
+			ways += makeChange( remaining, coins, index + 1);
 		}
 
 		return ways;
 	}
 
-	public static int makeChange(int[] coins, int target, int index) {
+	public static int makeChange_dp(int x, int[] coins) {
+		int[][] map = new int[x + 1][coins.length];
+		return makeChange_dp(x, coins, 0, map);
+	}
+
+	public static int makeChange_dp(int x, int[] coins, int index, int[][] map) {
+		if (map[x][index] > 0)
+			return map[x][index];
+
 		if (index >= coins.length - 1)
 			return 1; // reach the last coin
 
@@ -32,41 +41,18 @@ public class CC_Recursion_8_11_Coins {
 
 		int ways = 0;
 
-		for (int i = 0; i * coin <= target; i++) {
-			int remainingTarget = target - i * coin;
-			ways += makeChange(coins, remainingTarget, index + 1);
+		for (int i = 0; i * coin <= x; i++) {
+			int remaining = x - i * coin;
+			ways += makeChange_dp(remaining,coins, index + 1, map);
 		}
-		return ways;
-	}
-	
-	public static int makeChange_dp_helper(int[] coins, int n) {
-		int[][] map = new int[n+1][coins.length];
-		return makeChange_dp(coins,n,0,map);
-	}
-	public static int makeChange_dp(int[] coins, int target, int index,int[][] map) {
-		if(map[target][index]>0) return map[target][index];
-		
-		if (index >= coins.length - 1)
-			return 1; // reach the last coin
 
-		int coin = coins[index];
-
-		int ways = 0;
-
-		for (int i = 0; i * coin <= target; i++) {
-			int remainingTarget = target - i * coin;
-			ways += makeChange_dp(coins, remainingTarget, index + 1,map);
-		}
-		
-		map[target][index] = ways;
+		map[x][index] = ways;
 		return ways;
 	}
 
 	public static void main(String[] args) {
 		int[] coins = { 25, 10, 5, 1 };
-		System.out.println(makeChange(coins, 10));
-		System.out.println(makeChange(coins, 10, 0));
-		System.out.println(makeChange_dp_helper(coins, 10));
+		System.out.println(makeChange(10,coins,0));
+		System.out.println(makeChange_dp(10,coins));
 	}
-
 }

@@ -10,60 +10,53 @@ package dynamicprogramming;
  */
 public class BB_007_Make_Change {
 
-	private static int[] coins = new int[] { 1, 5, 10, 25 };
-	
-	public static int makeChange(int change) {
-
-		if (change == 0)
+	public static int makeChange(int x, int[] coins) {
+		if (x == 0)
 			return 0;
 
-		int minCoins = Integer.MAX_VALUE;
-
-		// Removing every single coin to see how many coins are needed for
-		// remaining change
+		int min = x; 
 		for (int coin : coins) {
-			if (coin <= change) {
-				int curMinCoins = makeChange(change - coin);
-				minCoins = Math.min(minCoins, curMinCoins);
+			if (x - coin >= 0) {
+				int c = makeChange(x - coin, coins);
+				if (min > c + 1) // add back the removed coin
+					min = c + 1;
 			}
 		}
-
-		// Adding back the removed coin
-		return minCoins + 1;
-
+		return min;
 	}
 
-	public static int makeChange_topdown_helper(int change) {
-
-		int[] cache = new int[change + 1];
-		for (int i = 0; i <= change; i++) {
+	public static int makeChange_dp(int x, int[] coins) {
+		int[] cache = new int[x];
+		for (int i = 1; i < x; i++) {
 			cache[i] = -1;
 		}
-
-		return makeChange_topdown(change, cache);
+		return makeChange_dp(x, coins, cache);
 	}
 
-	private static int makeChange_topdown(int change, int[] cache) {
-		if (cache[change] >= 0)
-			return cache[change];
+	public static int makeChange_dp(int x, int[] coins, int[] cache) {
+		if (x == 0)
+			return 0;
 
-		int minCoins = Integer.MAX_VALUE;
-
+		int min = x;
 		for (int coin : coins) {
-			if (coin <= change) {
-				int curMinCoins = makeChange_topdown(change - coin, cache);
-				minCoins = Math.min(curMinCoins, minCoins);
+			if (x - coin >= 0) {
+				int c;
+				if (cache[x - coin] >= 0)
+					c = cache[x - coin];
+				else {
+					c = makeChange_dp(x - coin, coins, cache);
+					cache[x - coin] = c;
+				}
+				if (min > c + 1)
+					min = c + 1;
 			}
 		}
-
-		cache[change] = minCoins + 1;
-
-		return cache[change];
+		return min;
 	}
 
 	public static void main(String[] args) {
-
-		System.out.println(makeChange(16));
-		System.out.println(makeChange_topdown_helper(16));
+		int[] coins = { 1, 5, 10, 25 };
+		System.out.println(makeChange(50, coins));
+		System.out.println(makeChange_dp(32, coins));
 	}
 }

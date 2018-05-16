@@ -13,11 +13,11 @@ public class BB_011_Smallest_Change {
 		if (x == 0)
 			return 0;
 
-		int min = x;
+		int min = x; 
 		for (int coin : coins) {
 			if (x - coin >= 0) {
 				int c = change(x - coin, coins);
-				if (min > c + 1)
+				if (min > c + 1) // add back the removed coin
 					min = c + 1;
 			}
 		}
@@ -55,7 +55,7 @@ public class BB_011_Smallest_Change {
 
 	public static void main(String[] args) {
 		int[] coins = { 1, 5, 10, 25 };
-		System.out.println(change(32, coins));
+		System.out.println(change(50, coins));
 		System.out.println(change_dp(32, coins));
 	}
 }

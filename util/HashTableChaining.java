@@ -1,6 +1,6 @@
 package util;
 
-public class ChainingHashTable{
+public class HashTableChaining{
 	
 	private final static int TABLE_SIZE = 3;
 	
@@ -39,7 +39,7 @@ public class ChainingHashTable{
 	}
 	
 	// constructor
-	ChainingHashTable(){
+	HashTableChaining(){
 		ht = new Node[TABLE_SIZE];
 		for (int i = 0 ; i < TABLE_SIZE; i ++){
 			ht[i] = null;
@@ -125,7 +125,7 @@ public class ChainingHashTable{
 	}
 	
 	public static void main(String args[]) {
-		ChainingHashTable cht = new ChainingHashTable();
+		HashTableChaining cht = new HashTableChaining();
 		
 		cht.put(10, 101);
 		cht.put(20, 201);

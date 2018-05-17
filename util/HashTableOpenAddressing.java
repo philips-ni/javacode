@@ -1,11 +1,11 @@
 package util;
 
-public class OpenAddressingHashTable {
+public class HashTableOpenAddressing {
 	private final static int TABLE_SIZE = 128;
 
 	HashEntry[] table;
 
-	OpenAddressingHashTable() {
+	HashTableOpenAddressing() {
 		table = new HashEntry[TABLE_SIZE];
 
 		for (int i = 0; i < TABLE_SIZE; i++) {

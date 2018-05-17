@@ -1,17 +1,19 @@
 package util;
 
-/**
- * 
- * This is to implement a stack class including push, pop, peek method
- */
-class Stack {
-	private int STACK_SIZE;
-	private int top;
-	private int[] stack;
+import java.util.EmptyStackException;
 
-	Stack(int size) {
-		STACK_SIZE = size; // set the max stack size
-		stack = new int[STACK_SIZE]; // create the stack array
+/**
+ * Implement a stack class including push, pop, peek method
+ */
+public class Stack<T> {
+
+	private T[] stack;
+	private int top;
+	private int size;
+	private int STACK_SIZE = 1024; // define the stack capacity
+
+	public Stack() {
+		stack = (T[]) new Object[STACK_SIZE]; // create the stack array
 		top = -1; // initialize the stack pointer
 	}
 
@@ -19,28 +21,42 @@ class Stack {
 		return top == -1;
 	}
 
-	public int pop() {
-		if (top != -1)
-			return stack[top--];
-		else {
-			System.out.println("No element to pop");
-			return -1;
+	public T pop() {
+		if (isEmpty())
+			throw new EmptyStackException();
+
+		return stack[top--];
+	}
+
+	public void push(T value) {
+		if (stack.length == size)
+			ensureCapacity(size * 2 + 1);
+
+		stack[++top] = value;
+		size++;
+	}
+
+	private void ensureCapacity(int capacity) {
+		if (capacity < size)
+			return;
+
+		T[] old = stack;
+
+		stack = (T[]) new Object[capacity];
+		for (int i = 0; i < size; i++) {
+			stack[i] = old[i];
 		}
 	}
 
-	public void push(int value) {
-		if (top == STACK_SIZE - 1)
-			System.out.println("Too much elements to push");
-		else
-			stack[++top] = value;
-	}
+	public T peek() {
+		if (isEmpty())
+			throw new EmptyStackException();
 
-	public int peek() {
 		return stack[top];
 	}
 
 	public static void main(String[] args) {
-		Stack st = new Stack(5);
+		Stack<Integer> st = new Stack<Integer>();
 		st.push(11);
 		st.push(12);
 		st.push(13);

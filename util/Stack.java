@@ -29,7 +29,7 @@ public class Stack<T> {
 	}
 
 	public void push(T value) {
-		if (stack.length == size)
+		if (size == stack.length)
 			ensureCapacity(size * 2 + 1);
 
 		stack[++top] = value;

@@ -13,15 +13,16 @@ package util;
  * indicate that it is the last node.
  * 
  */
-public class MyLinkedList {
+public class LinkedList {
 
-	private MyNode head;
-	private MyNode tail; // using tail pointer is much easier to add node to the
-							// end
+	private LinkedListNode head;
+	private LinkedListNode tail; // using tail pointer is much easier to add
+									// node to the
+	// end
 
 	private int count;
 
-	public MyLinkedList() {
+	public LinkedList() {
 		this.count = 0;
 		head = null;
 		tail = null;
@@ -32,8 +33,8 @@ public class MyLinkedList {
 	}
 
 	public void add(int value) {
-		MyNode node = new MyNode();
-		node.setValue(value);
+		LinkedListNode node = new LinkedListNode();
+		node.value = value;
 
 		if (head == null) {
 			// setting both head and tail pointing to the only node
@@ -41,7 +42,7 @@ public class MyLinkedList {
 			tail = node;
 		} else {
 			// set tail's next to the new node
-			tail.setNext(node);
+			tail.next = node;
 
 			// set tail to the new node
 			tail = node;
@@ -51,25 +52,25 @@ public class MyLinkedList {
 	}
 
 	public void add(int value, int pos) {
-		MyNode node = new MyNode();
-		node.setValue(value);
+		LinkedListNode node = new LinkedListNode();
+		node.value = value;
 
-		MyNode current = this.head;
+		LinkedListNode current = this.head;
 		int it = 1;
 
-		while (current.getNext() != null && it < pos) {
-			current = current.getNext();
+		while (current.next != null && it < pos) {
+			current = current.next;
 			it++;
 		}
 
 		if (it == pos) {
-			if (current.getNext() != null) {
+			if (current.next != null) {
 				// insert new node
-				node.setNext(current.getNext());
-				current.setNext(node);
+				node.next = current.next;
+				current.next = node;
 			} else {
 				// append new node after tail
-				current.setNext(node);
+				current.next = node;
 				// set tail to the new node
 				tail = node;
 			}
@@ -82,28 +83,28 @@ public class MyLinkedList {
 	}
 
 	public void delete(int value) {
-		MyNode previous = this.head;
-		MyNode current = this.head;
+		LinkedListNode previous = this.head;
+		LinkedListNode current = this.head;
 
 		while (true) {
-			if (current.getValue() == value) {
+			if (current.value == value) {
 				// delete node
 				System.out.println("Found the value to delete");
-				if (current.getNext() != null) {
+				if (current.next != null) {
 					System.out.println("drop current node");
-					previous.setNext(current.getNext());
+					previous.next = current.next;
 				} else {
 					// set tail to previous
 					System.out.println("Drop current node and set tail to previous");
-					previous.setNext(null);
+					previous.next = null;
 					tail = previous;
 				}
 				this.count--;
 				break;
 			} else {
-				if (current.getNext() != null) {
+				if (current.next != null) {
 					previous = current;
-					current = current.getNext();
+					current = current.next;
 				} else {
 					// this is the tail
 					System.out.println("Didn't find value to delete");
@@ -114,20 +115,20 @@ public class MyLinkedList {
 	}
 
 	public void print() {
-		MyNode current = this.head;
+		LinkedListNode current = this.head;
 
-		while (current.getNext() != null) {
-			System.out.println(Integer.toString(current.getValue()));
-			current = current.getNext();
+		while (current.next != null) {
+			System.out.println(Integer.toString(current.value));
+			current = current.next;
 		}
 
 		// print last one
-		System.out.println(Integer.toString(current.getValue()));
+		System.out.println(Integer.toString(current.value));
 	}
 
 	public static void main(String args[]) {
 
-		MyLinkedList list = new MyLinkedList();
+		LinkedList list = new LinkedList();
 		list.add(1);
 		list.add(2);
 		list.add(3);

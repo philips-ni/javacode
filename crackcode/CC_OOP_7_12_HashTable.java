@@ -2,6 +2,8 @@ package crackcode;
 
 import java.util.ArrayList;
 
+import util.HashTableChaining;
+
 /**
  * CC.OOP.7.12 HashTable
  * 
@@ -31,34 +33,37 @@ public class CC_OOP_7_12_HashTable {
 			}
 		}
 
-		public int getIndex(K key) {
+		public int getHash(K key) {
 			return Math.abs(key.hashCode() % arr.size());
 		}
 
 		public void put(K key, V value) {
-			int id = getIndex(key);
+			int hash = getHash(key);
 
-			LinkedListNode<K, V> current = arr.get(id);
+			LinkedListNode<K, V> current = arr.get(hash);
 
 			if (current == null) {
-				current = new LinkedListNode<K, V>(key, value);
+				System.out.println("create first node at index " + hash);
+				arr.set(hash, new LinkedListNode<K, V>(key, value));
 			} else {
 				while (current.key != key && current.next != null) {
 					current = current.next;
 				}
 
 				if (current.key == key) {
-					current.value = value; // update value
+					System.out.println("update with <" + key + " , " + value + ">");
+					current.value = value;
 				} else {
-					current.next = new LinkedListNode<K, V>(key, value); // add new node
+					System.out.println("insert <" + key + " , " + value + ">");
+					current.next = new LinkedListNode<K, V>(key, value);
 				}
 			}
 		}
 
 		public V get(K key) {
-			int id = getIndex(key);
+			int hash = getHash(key);
 
-			LinkedListNode<K, V> current = arr.get(id);
+			LinkedListNode<K, V> current = arr.get(hash);
 
 			if (current == null) {
 				return null;
@@ -76,8 +81,15 @@ public class CC_OOP_7_12_HashTable {
 	}
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		CC_OOP_7_12_HashTable test = new CC_OOP_7_12_HashTable();
+		HashTable<Integer, Integer> cht = test.new HashTable<Integer, Integer>(5);
 
+		cht.put(10, 101);
+		cht.put(20, 201);
+		cht.put(10, 102);
+		cht.put(20, 202);
+		cht.put(11, 203);
+		cht.put(22, 204);
 	}
 
 }

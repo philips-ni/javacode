@@ -41,7 +41,15 @@ public class StringBuilder {
 		} else if (minimumCapacity > newCapacity) {
 			newCapacity = minimumCapacity;
 		}
-		value = Arrays.copyOf(value, newCapacity);
+		
+		//value = Arrays.copyOf(value, newCapacity);
+
+		char[] temp = value;
+		value = new char[newCapacity];
+		for (int i = 0; i < count; i++) {
+			value[i] = temp[i];
+		}
+
 	}
 
 	public static void main(String[] args) {

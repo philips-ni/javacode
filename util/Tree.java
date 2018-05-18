@@ -4,9 +4,6 @@ import java.util.LinkedList;
 import java.util.Stack;
 import java.util.Queue;
 
-/**
- * @author Wayne.Li
- */
 public class Tree {
 
 	public TreeNode addChild(TreeNode parent, String childId) {

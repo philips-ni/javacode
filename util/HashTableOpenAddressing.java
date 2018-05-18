@@ -10,14 +10,6 @@ public class HashTableOpenAddressing {
 			this.key = key;
 			this.value = value;
 		}
-		
-		public int getKey(){
-			return this.key;
-		}
-		
-		public int getValue(){
-			return this.value;
-		}
 	}
 	
 	private final static int TABLE_SIZE = 128;
@@ -34,7 +26,7 @@ public class HashTableOpenAddressing {
 
 	public void put(int key, int value) {
 		int hash = (key % TABLE_SIZE);
-		while (table[hash] != null && table[hash].getKey() != key) {
+		while (table[hash] != null && table[hash].key != key) {
 			hash = (hash + 1) % TABLE_SIZE;
 		}
 		table[hash] = new HashEntry(key, value);
@@ -43,14 +35,14 @@ public class HashTableOpenAddressing {
 	public int get(int key) {
 		int hash = (key % TABLE_SIZE);
 
-		while (table[hash] != null && table[hash].getKey() != key) {
+		while (table[hash] != null && table[hash].key != key) {
 			hash = (hash + 1) % TABLE_SIZE;
 		}
 
 		if (table[hash] == null)
 			return -1;
 		else
-			return table[hash].getValue();
+			return table[hash].value;
 
 	}
 }

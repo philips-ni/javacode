@@ -34,11 +34,11 @@ public class HashTableChaining<K, V> {
 	// add or update (key,value)
 	public void put(K key, V value) {
 		int hash = getHash(key);
-	
+
 		LinkedListNode<K, V> current = ht[hash];
 
 		if (current == null) {
-			System.out.println("create first node at index "+hash);
+			System.out.println("create first node at index " + hash);
 			ht[hash] = new LinkedListNode<K, V>(key, value);
 		} else {
 			while (current.key != key && current.next != null) {
@@ -96,9 +96,10 @@ public class HashTableChaining<K, V> {
 				// found the key
 				if (prev != null) {
 					prev.next = current.next;
-					System.out.println("Node with key "+key+" is removed");
 				} else {
-					current = null; // first node case
+					System.out.println("Remove first node " + current.key + "," + current.value);
+					ht[hash] = current.next; // first node case
+					System.out.println("Updated first node " + ht[hash].key + "," + ht[hash].value);
 				}
 			}
 

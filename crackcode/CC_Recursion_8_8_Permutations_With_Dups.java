@@ -1,7 +1,5 @@
 package crackcode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 
 /**
@@ -14,23 +12,21 @@ import java.util.HashSet;
  */
 public class CC_Recursion_8_8_Permutations_With_Dups {
 
-	public static ArrayList<String> getPerms(String str) {
-		if (str == null)
-			return null;
+	public static HashSet<String> getPerms(String str) {
 
-		ArrayList<String> permutations = new ArrayList<String>();
+		HashSet<String> permutations = new HashSet<String>();
 		if (str.length() == 0) { // base case
 			permutations.add("");
-			return permutations;
-		}
+		} else {
+			char first = str.charAt(0);
+			String remainder = str.substring(1);
 
-		char first = str.charAt(0);
-		String remainder = str.substring(1);
-		ArrayList<String> words = getPerms(remainder);
-		for (String word : words) {
-			for (int i = 0; i <= word.length(); i++) {
-				String s = insertChar(word, first, i);
-				permutations.add(s);
+			HashSet<String> words = getPerms(remainder);
+			for (String word : words) {
+				for (int i = 0; i <= word.length(); i++) {
+					String s = insertChar(word, first, i);
+					permutations.add(s);
+				}
 			}
 		}
 
@@ -42,25 +38,10 @@ public class CC_Recursion_8_8_Permutations_With_Dups {
 		String s2 = s.substring(i);
 		return s1 + c + s2;
 	}
-	
-	public static ArrayList<String> uniqPerms(String str){
-		ArrayList<String> words = getPerms(str);
-		HashSet<String> set = new HashSet<String>();
-
-		ArrayList<String> uniq = new ArrayList<String>();
-		for (int i = 0; i < words.size(); i++) {
-			if (!set.contains(words.get(i))) {
-				set.add(words.get(i));	
-				uniq.add(words.get(i));
-			}
-		}
-		
-		return uniq;
-	}
 
 	public static void main(String[] args) {
-		ArrayList<String> words = uniqPerms("aba");
-		for(int i=0;i<words.size();i++)
-			System.out.println(words.get(i));
+		HashSet<String> words = getPerms("aba");
+		for (String s : words)
+			System.out.println(s);
 	}
 }

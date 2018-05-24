@@ -5,12 +5,12 @@ import java.util.HashMap;
 /**
  * Jumping Ball
  * 
- * Question : Weâ€™re on a crazy jumping ball, trying to stop, while avoiding
+ * Question : We're on a crazy jumping ball, trying to stop, while avoiding
  * spikes along the way.
  * 
  * Here are the rules:
  * 
- * 1) Youâ€™re given a flat runway with a bunch of spikes in it. The runway is
+ * 1) You¡®re given a flat runway with a bunch of spikes in it. The runway is
  * represented by a boolean array which indicates if a particular (discrete)
  * spot is clear of spikes. It is True for clear and False for not clear.
  * 

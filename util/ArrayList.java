@@ -56,13 +56,13 @@ public class ArrayList<E> {
 		if (index >= size)
 			throw new IndexOutOfBoundsException();
 
-		Object removed = data[index];
+		E removed = (E) data[index];
 
 		for (int i = index; i < size; i++) {
 			data[i] = data[i++];
 		}
 
 		size--;
-		return (E) removed;
+		return removed;
 	}
 }

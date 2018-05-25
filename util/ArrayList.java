@@ -1,50 +1,60 @@
 package util;
 
-public class ArrayList {
-	private Object[] data;
+public class ArrayList<E> {
+	private Object[] data; // Can't create a generic type of array. Object type works good here!
 	private int size = 0;
 	private static final int INIT_SIZE = 100;
 
 	public ArrayList() {
 		data = new Object[INIT_SIZE];
 	}
-	
-	public int size(){
+
+	public int size() {
 		return size;
 	}
 
-	public Object get(int index) throws Exception {
+	@SuppressWarnings("unchecked")
+	public E get(int index) {
 		if (index < size) {
-			return data[index];
+			return (E) data[index];
 		} else {
-			throw new Exception();
+			throw new IndexOutOfBoundsException();
 		}
 	}
 
-	public void add(Object obj) {
+	public boolean add(E e) {
 		if (size == data.length)
-			ensureCapacity(2 * size);
+			ensureCapacity(size + 1);
 
-		data[size] = obj;
-		size++;
+		data[size++] = e;
+
+		return true;
 	}
 
-	private void ensureCapacity(int newSize) {
-		if (newSize <= size)
-			return;
+	private void ensureCapacity(int minCapacity) {
 
-		Object[] tmp = data;
+		int oldCapacity = data.length;
 
-		data = new Object[newSize];
+		if (minCapacity > oldCapacity) {
+			Object[] temp = data;
+			int newCapacity = oldCapacity * 2 + 1;
 
-		for (int i = 0; i < size; i++) {
-			data[i] = tmp[i];
+			if (newCapacity < minCapacity)
+				newCapacity = minCapacity;
+
+			data = new Object[newCapacity];
+			for (int i = 0; i < size; i++) {
+				data[i] = temp[i];
+			}
+
+			// data = Arrays.copyOf(temp, newCapacity);
 		}
 	}
 
-	public Object remove(int index) throws Exception {
+	@SuppressWarnings("unchecked")
+	public E remove(int index) {
 		if (index >= size)
-			throw new Exception();
+			throw new IndexOutOfBoundsException();
 
 		Object removed = data[index];
 
@@ -53,8 +63,6 @@ public class ArrayList {
 		}
 
 		size--;
-
-		return removed;
-
+		return (E) removed;
 	}
 }

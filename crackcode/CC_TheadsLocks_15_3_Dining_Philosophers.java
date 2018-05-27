@@ -58,7 +58,6 @@ public class CC_TheadsLocks_15_3_Dining_Philosophers {
 		public void run() {
 			try {
 				while (true) {
-
 					// thinking
 					doAction(System.nanoTime() + ": Thinking");
 					synchronized (leftFork) {
@@ -81,7 +80,7 @@ public class CC_TheadsLocks_15_3_Dining_Philosophers {
 		}
 	}
 
-	public void run() {
+	public void start() {
 		Philosopher[] philosophers = new Philosopher[5];
 		Object[] forks = new Object[philosophers.length];
 
@@ -117,7 +116,7 @@ public class CC_TheadsLocks_15_3_Dining_Philosophers {
 
 	public static void main(String[] args) throws Exception {
 		CC_TheadsLocks_15_3_Dining_Philosophers test = new CC_TheadsLocks_15_3_Dining_Philosophers();
-		test.run();
+		test.start();
 	}
 
 }

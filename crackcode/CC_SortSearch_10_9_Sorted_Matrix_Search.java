@@ -1,7 +1,7 @@
 package crackcode;
 
 /**
- * BB.Searching.005 Matrix Search
+ * CC.SortSearch.10.9 Matrix Search
  * 
  * Question: Given an nxm array where all rows and columns are in sorted order,
  * write a function to determine whether the array contains an element x.

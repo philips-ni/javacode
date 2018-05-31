@@ -1,5 +1,7 @@
 package linkedlist;
 
+import java.util.Stack;
+
 import common.Helper;
 import util.LinkedListNode;
 
@@ -27,6 +29,17 @@ public class BB_005_Print_Reversed_Linkedlist {
 
 		return head;
 	}
+	
+	public static void printReversedList(LinkedListNode node){
+		Stack<LinkedListNode> st = new Stack<LinkedListNode>();
+		while(node!=null){
+			st.push(node);
+			node = node.next;
+		}
+		while(!st.isEmpty()){
+			System.out.println(st.pop().value);
+		}
+	}
 
 	public static void main(String[] args) {
 		LinkedListNode n1 = new LinkedListNode();
@@ -42,6 +55,7 @@ public class BB_005_Print_Reversed_Linkedlist {
 
 		Helper.printLinkedList(reverseLinkedList(n1));
 
+		printReversedList(n3);
 	}
 
 }

@@ -2,9 +2,6 @@ package util;
 
 import java.util.EmptyStackException;
 
-/**
- * Implement a stack class including push, pop, peek method
- */
 public class Stack<T> {
 
 	private T[] stack;

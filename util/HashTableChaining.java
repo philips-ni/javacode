@@ -1,7 +1,6 @@
 package util;
 
 public class HashTableChaining<K, V> {
-
 	private class LinkedListNode<K, V> {
 		private K key;
 		private V value;
@@ -14,11 +13,10 @@ public class HashTableChaining<K, V> {
 		}
 	}
 
-	private final static int TABLE_SIZE = 3;
-
+	private final static int TABLE_SIZE = 10;
 	private LinkedListNode<K, V>[] ht;
 
-	// constructor
+	@SuppressWarnings("unchecked")
 	public HashTableChaining() {
 		ht = new LinkedListNode[TABLE_SIZE];
 		for (int i = 0; i < TABLE_SIZE; i++) {
@@ -31,10 +29,8 @@ public class HashTableChaining<K, V> {
 		return Math.abs(key.hashCode() % TABLE_SIZE);
 	}
 
-	// add or update (key,value)
 	public void put(K key, V value) {
 		int hash = getHash(key);
-
 		LinkedListNode<K, V> current = ht[hash];
 
 		if (current == null) {
@@ -55,10 +51,8 @@ public class HashTableChaining<K, V> {
 		}
 	}
 
-	// get value
 	public V get(K key) {
 		int hash = getHash(key);
-
 		LinkedListNode<K, V> current = ht[hash];
 
 		if (current == null) {
@@ -78,10 +72,8 @@ public class HashTableChaining<K, V> {
 		}
 	}
 
-	// remove entry
 	public void remove(K key) {
 		int hash = getHash(key);
-
 		LinkedListNode<K, V> current = ht[hash];
 
 		if (current != null) {
@@ -102,13 +94,11 @@ public class HashTableChaining<K, V> {
 					System.out.println("Updated first node " + ht[hash].key + "," + ht[hash].value);
 				}
 			}
-
 		}
 	}
 
 	public static void main(String args[]) {
-		HashTableChaining ht = new HashTableChaining();
-
+		HashTableChaining<Integer,Integer> ht = new HashTableChaining<Integer,Integer>();
 		ht.put(10, 101);
 		ht.put(20, 201);
 		ht.put(10, 102);

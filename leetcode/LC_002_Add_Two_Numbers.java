@@ -22,27 +22,24 @@ import util.LinkedListNode;
 public class LC_002_Add_Two_Numbers {
 
 	public static LinkedListNode addTwoNumbers(LinkedListNode l1, LinkedListNode l2) {
-		LinkedListNode c1 = l1;
-		LinkedListNode c2 = l2;
 		LinkedListNode head = new LinkedListNode(0);
-
-		LinkedListNode d = head;
+		LinkedListNode current = head;
 		int sum = 0;
-		while (c1 != null || c2 != null) {
+		while (l1 != null || l2 != null) {
 			sum /= 10;
-			if (c1 != null) {
-				sum += c1.value;
-				c1 = c1.next;
+			if (l1 != null) {
+				sum += l1.value;
+				l1 = l1.next;
 			}
-			if (c2 != null) {
-				sum += c2.value;
-				c2 = c2.next;
+			if (l2 != null) {
+				sum += l2.value;
+				l2 = l2.next;
 			}
-			d.next = new LinkedListNode(sum % 10);
-			d = d.next;
+			current.next = new LinkedListNode(sum % 10);
+			current = current.next;
 		}
 		if (sum / 10 == 1)
-			d.next = new LinkedListNode(1);
+			current.next = new LinkedListNode(1);
 		return head.next;
 	}
 

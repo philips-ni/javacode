@@ -14,22 +14,20 @@ import util.LinkedListNode;
  * e.g. input : 1, 2, 3 output: 3, 2, 1
  * 
  */
-public class BB_005_Print_Reversed_Linkedlist {
-
-
-	public static LinkedListNode reverseLinkedList(LinkedListNode node) {
+public class BB_005_Print_Reversed_Linkedlist {	
+	// reverse and print
+	public static LinkedListNode reverse(LinkedListNode node) {
 		LinkedListNode head = node;
-		LinkedListNode first = node;
 		while (node.next != null) {
-			head = node.next; // save the new head
+			LinkedListNode temp = node.next;
 			node.next = node.next.next;
-			head.next = first;
-			first = head;
+			temp.next = head;
+			head = temp;
 		}
-
 		return head;
 	}
 	
+	// use stack to print in reverse order
 	public static void printReversedList(LinkedListNode node){
 		Stack<LinkedListNode> st = new Stack<LinkedListNode>();
 		while(node!=null){
@@ -53,9 +51,7 @@ public class BB_005_Print_Reversed_Linkedlist {
 		n2.next = n3;
 		n3.next = null;
 
-		Helper.printLinkedList(reverseLinkedList(n1));
-
+		Helper.printLinkedList(reverse(n1));
 		printReversedList(n3);
 	}
-
 }

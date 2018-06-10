@@ -27,6 +27,19 @@ public class BB_005_Print_Reversed_Linkedlist {
 		return head;
 	}
 	
+	// clone a new list when original list is not allowed to reverse, 
+	public static LinkedListNode reverseClone(LinkedListNode node) {
+		LinkedListNode head = null; // head of cloned list
+		while(node!=null) {
+			LinkedListNode temp = new LinkedListNode(node.value);
+			temp.next = head;
+			head = temp;
+			node = node.next;
+		}
+		
+		return head;
+	}
+	
 	// use stack to print in reverse order
 	public static void printReversedList(LinkedListNode node){
 		Stack<LinkedListNode> st = new Stack<LinkedListNode>();
@@ -51,7 +64,9 @@ public class BB_005_Print_Reversed_Linkedlist {
 		n2.next = n3;
 		n3.next = null;
 
-		Helper.printLinkedList(reverse(n1));
-		printReversedList(n3);
+		Helper.printLinkedList(reverse(n1)); // reversed list is 3 -> 2 -> 1
+		printReversedList(n3); // list is still 3 -> 2 -> 1 and print in reversed order
+		
+		Helper.printLinkedList(reverseClone(n3)); // clone a new list with reversed order 1 -> 2 -> 3
 	}
 }

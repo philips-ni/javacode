@@ -28,12 +28,38 @@ public class BB_001_LinkedList_Cycles {
 		return false;
 	}
 
+	public static boolean hasCycle_bt(LinkedListNode head) {
+
+		LinkedListNode it1 = head;
+		int nVisited = 0;
+		while (it1 != null && it1.next != null) {
+			it1 = it1.next;
+			nVisited++;
+
+			LinkedListNode it2 = head;
+			int x = nVisited;
+
+			int nCurrentVisited = 0;
+			while (x-- > 0) {
+				it2 = it2.next;
+
+				if (it2 == it1) {
+					nCurrentVisited++;
+				}
+
+				if (nCurrentVisited == 2)
+					return true;
+			}
+		}
+
+		return false;
+	}
+
 	/**
-	 * Floyd's algorithm. Increment one pointer by one and the other by two.If
-	 * they are ever pointing to the same node, there is a cycle.
+	 * Floyd's algorithm. Increment one pointer by one and the other by two.If they
+	 * are ever pointing to the same node, there is a cycle.
 	 * 
-	 * Refer to:
-	 * https://www.quora.com/How-does-Floyds-cycle-finding-algorithm-work
+	 * Refer to: https://www.quora.com/How-does-Floyds-cycle-finding-algorithm-work
 	 * 
 	 * @param node
 	 *            The head node of LinkedList.
@@ -54,7 +80,7 @@ public class BB_001_LinkedList_Cycles {
 
 		return false;
 	}
-	
+
 	public static void main(String[] args) {
 		LinkedListNode n1 = new LinkedListNode();
 		LinkedListNode n2 = new LinkedListNode();
@@ -68,6 +94,7 @@ public class BB_001_LinkedList_Cycles {
 		n3.next = n1;
 
 		System.out.println(hasCycle(n1));
+		System.out.println(hasCycle_bt(n1));
 		System.out.println(hasCycle_Floyd(n1));
 
 	}

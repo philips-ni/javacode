@@ -7,8 +7,8 @@ import util.LinkedListNode;
 /**
  * BB.LinkedList.006 Palindromes
  * 
- * Question : Given a linked list, write a function to determine whether
- * the list is a palindrome.
+ * Question : Given a linked list, write a function to determine whether the
+ * list is a palindrome.
  * 
  * e.g.
  * 
@@ -19,46 +19,52 @@ import util.LinkedListNode;
  */
 public class BB_006_Palindromes {
 
+	// clone a new list when original list is not allowed to reverse,
+	private static LinkedListNode reverseClone(LinkedListNode node) {
+		LinkedListNode head = null; // head of cloned list
+		while (node != null) {
+			LinkedListNode temp = new LinkedListNode(node.value);
+			temp.next = head;
+			head = temp;
+			node = node.next;
+		}
+		return head;
+	}
+
 	public static boolean palindrome(LinkedListNode node) {
-
-		LinkedListNode reversed = BB_005_Print_Reversed_Linkedlist.reverseLinkedList(node);
-
+		LinkedListNode reversed = reverseClone(node);
 		while (node != null) {
 			if (node.value != reversed.value)
 				return false;
 			node = node.next;
 		}
-
 		return true;
 	}
 
 	public static boolean palindrome_stack(LinkedListNode node) {
-
-		LinkedListNode current = node;
-		LinkedListNode runner = node;
+		LinkedListNode slow = node;
+		LinkedListNode fast = node;
 
 		Stack<LinkedListNode> st = new Stack<LinkedListNode>();
 
-		while (runner != null && runner.next != null) {
-			st.push(current);
-			current = current.next;
-			runner = runner.next.next;
+		while (fast != null && fast.next != null) {
+			st.push(slow);
+			slow = slow.next;
+			fast = fast.next.next;
 		}
 
-		if (runner != null)
-			current = current.next; // odd number case
+		if (fast != null)
+			slow = slow.next; // odd number case
 
-		while (current != null) {
-			if (st.pop().value != current.value)
+		while (slow != null) {
+			if (st.pop().value != slow.value)
 				return false;
-			current = current.next;
-
+			slow = slow.next;
 		}
 		return true;
 	}
-	
-	public static void main(String[] args) {
 
+	public static void main(String[] args) {
 		LinkedListNode p1 = new LinkedListNode();
 		LinkedListNode p2 = new LinkedListNode();
 		LinkedListNode p3 = new LinkedListNode();
@@ -71,8 +77,6 @@ public class BB_006_Palindromes {
 		p2.next = p3;
 		p3.next = p4;
 		System.out.println(palindrome(p1));
-		System.out.println(palindrome_stack(BB_005_Print_Reversed_Linkedlist.reverseLinkedList(p4)));
-
+		System.out.println(palindrome_stack(reverseClone(p4)));
 	}
-
 }

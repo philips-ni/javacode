@@ -29,11 +29,20 @@ public class BB_003_Sum {
 		int carry = (a & b) << 1;
 		return sum_recur(partialSum, carry);
 	}
+	
+	public static int minus(int a,int b){
+		int minus_b = sum(~b,1);
+		return sum(a,minus_b);
+	}
 
 	public static void main(String[] args) {
 		System.out.println(sum(5, 3));
 		System.out.println(sum_recur(5, 3));
 		System.out.println(sum(-5, 3));
 		System.out.println(sum_recur(-5, 3));
+		System.out.println(minus(5, -3));
+		System.out.println(minus(-5, 3));
+		System.out.println(minus(-5, -3));
+		System.out.println(minus(5, 3));
 	}
 }

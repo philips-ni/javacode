@@ -25,16 +25,17 @@ public class LC_003_Longest_Substring {
 	public static int lengthOfLongestSubstring_bf(String s) {
 		int max = Integer.MIN_VALUE;
 		Set<Character> set = new HashSet<Character>();
-		for (int i = 0; i < s.length(); i++) {
+		for (int i = 0; i < s.length() - 1; i++) {
 			int newMax = 1;
 			set.add(s.charAt(i));
 			for (int j = i + 1; j < s.length(); j++) {
 				if (!set.contains(s.charAt(j))) {
 					set.add(s.charAt(j));
 					newMax++;
-				}else break;
+				} else
+					break;
 			}
-			set.clear();	
+			set.clear();
 			max = Math.max(max, newMax);
 		}
 		return max;

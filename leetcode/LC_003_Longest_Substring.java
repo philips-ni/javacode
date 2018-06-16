@@ -23,7 +23,7 @@ import java.util.Set;
 public class LC_003_Longest_Substring {
 
 	public static int lengthOfLongestSubstring_bf(String s) {
-		int max = Integer.MIN_VALUE;
+		int max = 0;
 		Set<Character> set = new HashSet<Character>();
 		for (int i = 0; i < s.length() - 1; i++) {
 			int newMax = 1;

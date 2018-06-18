@@ -50,5 +50,6 @@ public class EPI_StackQueue_8_9_Max_Queue {
 		qu.enqueue(4);
 		qu.deque();
 		qu.enqueue(4);
+		System.out.println(qu.max());
 	}
 }

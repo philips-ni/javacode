@@ -7,7 +7,7 @@ import java.util.Arrays;
  * 
  * Question : Given a value N, if we want to make change for N cents, and we
  * have infinite supply of each of S = { S1, S2, .. , Sm} valued coins, how many
- * ways can we make the change? The order of coins doesn’t matter.
+ * ways can we make the change? The order of coins does not matter.
  * 
  * e.g.
  * 
@@ -45,7 +45,8 @@ public class BB_007_Make_Change {
 		if (change < 0)
 			return 0;
 
-		// If there are no coins and change is greater than 0, then no solution exist
+		// If there are no coins and change is greater than 0, then no solution
+		// exist
 		if (num <= 0 && change >= 1)
 			return 0;
 
@@ -53,33 +54,32 @@ public class BB_007_Make_Change {
 		return makeChanges(coins, num - 1, change) + makeChanges(coins, num, change - coins[num - 1]);
 	}
 
-	public static long makeChanges_bottomup(int coins[], int num, int change)
-    {
-        //Time complexity of this function: O(mn)
-        //Space Complexity of this function: O(n)
- 
-        // table[i] will be storing the number of solutions
-        // for value i. We need n+1 rows as the table is
-        // constructed in bottom up manner using the base
-        // case (n = 0)
-        long[] table = new long[change+1];
- 
-        // Initialize all table values as 0
-		Arrays.fill(table, 0);   //O(n)
- 
-        // Base case (If given value is 0)
-        table[0] = 1;
- 
-        // Pick all coins one by one and update the table[]
-        // values after the index greater than or equal to
-        // the value of the picked coin
-        for (int i=0; i<num; i++)
-            for (int j=coins[i]; j<=change; j++)
-                table[j] += table[j-coins[i]];
- 
-        return table[change];
-    }
-	
+	public static long makeChanges_bottomup(int coins[], int num, int change) {
+		// Time complexity of this function: O(mn)
+		// Space Complexity of this function: O(n)
+
+		// table[i] will be storing the number of solutions
+		// for value i. We need n+1 rows as the table is
+		// constructed in bottom up manner using the base
+		// case (n = 0)
+		long[] table = new long[change + 1];
+
+		// Initialize all table values as 0
+		Arrays.fill(table, 0); // O(n)
+
+		// Base case (If given value is 0)
+		table[0] = 1;
+
+		// Pick all coins one by one and update the table[]
+		// values after the index greater than or equal to
+		// the value of the picked coin
+		for (int i = 0; i < num; i++)
+			for (int j = coins[i]; j <= change; j++)
+				table[j] += table[j - coins[i]];
+
+		return table[change];
+	}
+
 	// Driver program to test above function
 	public static void main(String[] args) {
 		int coins[] = { 1, 5, 10, 25 };

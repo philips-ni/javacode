@@ -54,20 +54,6 @@ public class BB_007_Make_Change {
 		return makeChanges(coins, num - 1, change) + makeChanges(coins, num, change - coins[num - 1]);
 	}
 
-	static int makeChanges2(int change) {
-		// If change is 0 then there is 1 solution
-		// (do not include any coin)
-		if (change == 0)
-			return 1;
-
-		// If change is less than 0 then no solution exists
-		if (change < 0)
-			return 0;
-
-		// count solutions including coins[num-1] and excluding coins[num-1]
-		return makeChanges2(change - 1) + makeChanges2(change -2) + makeChanges2(change - 3);
-	}
-
 	public static long makeChanges_bottomup(int coins[], int num, int change) {
 		// Time complexity of this function: O(mn)
 		// Space Complexity of this function: O(n)
@@ -100,6 +86,5 @@ public class BB_007_Make_Change {
 		int num = coins.length;
 		System.out.println(makeChanges(coins, num, 25));
 		System.out.println(makeChanges_bottomup(coins, num, 25));
-		System.out.println(makeChanges2(12));
 	}
 }

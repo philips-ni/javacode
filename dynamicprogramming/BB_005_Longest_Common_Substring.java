@@ -23,7 +23,7 @@ public class BB_005_Longest_Common_Substring {
 
 	public static String longestSubstring_bf(String a, String b) {
 		int len = 0;
-		String c ="";
+		String c = "";
 		if(a.length() == 0 || b.length() == 0) 
 			return c;
 		
@@ -32,6 +32,7 @@ public class BB_005_Longest_Common_Substring {
 				int tempLen = 0;
 				int i_start = i;
 				int j_start = j;
+				
 				StringBuilder sb = new StringBuilder();
 				while(i_start < a.length() && j_start < b.length()) {
 					if(a.charAt(i_start) == b.charAt(j_start)) {

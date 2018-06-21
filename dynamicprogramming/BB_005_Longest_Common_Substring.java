@@ -10,7 +10,6 @@ package dynamicprogramming;
  * 
  * longestSubstring("ABAB", "BABA") = "ABA"
  * 
- * 
  *    substring length cache:
  *    
  *      A  B  A  B
@@ -19,10 +18,39 @@ package dynamicprogramming;
  *    B 0  2  0  3 
  *    A 1  0  3  0
  *    
- *    
  */
 public class BB_005_Longest_Common_Substring {
 
+	public static String longestSubstring_bf(String a, String b) {
+		int len = 0;
+		String c ="";
+		if(a.length() == 0 || b.length() == 0) 
+			return c;
+		
+		for(int i = 0; i < a.length(); i++) {
+			for(int j = 0; j < b.length(); j++) {
+				int tempLen = 0;
+				int i_start = i;
+				int j_start = j;
+				StringBuilder sb = new StringBuilder();
+				while(i_start < a.length() && j_start < b.length()) {
+					if(a.charAt(i_start) == b.charAt(j_start)) {
+						tempLen++;
+						sb.append(a.charAt(i_start));			
+						if(tempLen > len) {
+							len = tempLen;
+							c = sb.toString();
+						}	
+						i_start++;
+						j_start++;
+					}else break;
+				}	
+
+			}
+		}
+		return c;
+	}
+	
 	public static String longestSubstring(String a, String b) {
 		String c = "";
 		int len = 0;
@@ -53,6 +81,7 @@ public class BB_005_Longest_Common_Substring {
 
 	public static void main(String[] args) {
 		System.out.println(longestSubstring("ABAB","BABA"));
+		System.out.println(longestSubstring_bf("ABAB","BABA"));
 	}
 
 }

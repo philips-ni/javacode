@@ -8,36 +8,48 @@ import util.BTNode;
  * 
  * Question : Given a binary tree, write a function to determine whether the
  * tree is balanced.
- * 
- * e.g.
- * 
  *
+ * An empty tree is height-balanced.
+ * 
+ * A non-empty binary tree T is balanced if:
+ * 
+ * 1) Left subtree of T is balanced
+ * 
+ * 2) Right subtree of T is balanced
+ * 
+ * 3) The difference between heights of left subtree and right subtree is not
+ * more than 1.
+ * 
  */
 public class BB_008_Balanced_Binary_Tree {
 
-	public static boolean isBalanced(BTNode n) {
-		if (balancedHeight(n) > -1)
+	public static boolean isBalanced(BTNode node) {
+		if (node == null) // base case : empty tree is balanced
 			return true;
+
+		int lh = height(node.left);
+		int rh = height(node.right);
+
+		if (Math.abs(lh - rh) <= 1 && isBalanced(node.left) && isBalanced(node.right))
+			return true;
+
+		/* If we reach here then tree is not height-balanced */
 		return false;
 	}
 
-	public static int balancedHeight(BTNode n) {
-		if (n == null)
+	/*
+	 * The function Compute the "height" of a tree. Height is the number of nodes
+	 * along the longest path from the root node down to the farthest leaf node.
+	 */
+	private static int height(BTNode node) {
+		/* base case tree is empty */
+		if (node == null)
 			return 0;
 
-		int h1 = balancedHeight(n.right);
-		int h2 = balancedHeight(n.left);
-
-		if (h1 == -1 || h2 == -1)
-			return -1;
-
-		if (Math.abs(h1 - h2) > 1)
-			return -1;
-
-		if (h1 > h2)
-			return h1 + 1;
-
-		return h2 + 1;
+		/*
+		 * If tree is not empty then height = 1 + max of left height and right heights
+		 */
+		return 1 + Math.max(height(node.left), height(node.right));
 	}
 
 	public static void main(String[] args) {
@@ -73,5 +85,4 @@ public class BB_008_Balanced_Binary_Tree {
 
 		System.out.println(isBalanced(root));
 	}
-
 }

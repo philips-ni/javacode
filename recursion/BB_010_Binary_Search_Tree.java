@@ -10,14 +10,50 @@ import util.BTNode;
  *
  * e.g. invalid binary search tree
  * 
- * 5 2 7 1 3 6 4
+ *      3 
+ * 
+ *    2   5 
+ * 
+ *  1   4 
  * 
  * valid binary search tree
  * 
- * 5 3 7 1 4 6 8
+ *      4
+ *      
+ *    2   5
+ *    
+ *  1   3
+ *    
  */
 public class BB_010_Binary_Search_Tree {
 
+	public static boolean isBST(BTNode n){
+		if(n==null) return true;
+		
+		if(n.left != null && n.val < minValue(n.left)) return false;
+		if(n.right != null && n.val > maxValue(n.right)) return false;
+		
+		if(!isBST(n.left) || !isBST(n.right)) return false;
+		
+		return true;
+	}
+	
+	private static int minValue(BTNode n){
+		BTNode current = n;
+		while(current.left != null){
+			current = current.left;
+		}
+		return current.val;
+	}
+	
+	private static int maxValue(BTNode n){
+		BTNode current = n;
+		while(current.right != null){
+			current = current.right;
+		}
+		return current.val;
+	}
+	
 	public static boolean isBST(BTNode n, int min, int max) {
 		if (n == null)
 			return true;

@@ -31,6 +31,7 @@ import java.util.HashMap;
  */
 public class Jumping_Ball {
 
+	// location is the landing point with current speed
 	public static boolean canStop(boolean[] runway, int speed, int location) {
 		if (location >= runway.length || location < 0 || speed < 0 || !runway[location]) {
 			return false;

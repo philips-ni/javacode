@@ -21,14 +21,14 @@ public class BB_002_Consecutive_Array {
 	public static int longestConsecutive(int[] arr) {
 		HashSet<Integer> hs = new HashSet<Integer>();
 
-		for (int a : arr) {
+		for (int a : arr) {  // remove duplicates
 			hs.add(a);
 		}
 
 		int longest = 0;
 
 		for (int a : hs) {
-			if (hs.contains(a - 1))
+			if (hs.contains(a - 1)) // current value is not start point of max sequence
 				continue;
 
 			int length = 0;

@@ -36,18 +36,18 @@ public class BB_010_Merge_Arrays {
 			mp--;
 		}
 
+		// if ap is still greater than 0, the remaining elements in a are already in place. 
+		// if bp is greater than 0, they just need be copied to a
 		while (bp >= 0) {
 			a[mp] = b[bp--];
 			mp--;
 		}
-
 	}
 	
 	public static void main(String[] args) {
-		int[] mergea1 = { 2, 3, 5, 0, 0, 0, 0 };
-		int[] mergea2 = { 1, 4 };
-		mergeArray(mergea1, mergea2, 3, 2);
+		int[] mergea1 = { 1, 3, 5, 0, 0, 0};
+		int[] mergea2 = { 2, 4, 6 };
+		mergeArray(mergea1, mergea2, 3, 3);
 		System.out.println(Arrays.toString(mergea1));
 	}
-
 }

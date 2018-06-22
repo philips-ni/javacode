@@ -46,13 +46,14 @@ public class BB_008_Merge_K_Arrays_Comparator {
 			}
 		}
 		
+		// O(n) = mn*log(m)
 		int[] result = new int[size];
 		for(int i=0;!pq.isEmpty();i++) {
 			PQNode n = pq.poll();
 			result[i] = n.value;
 			int newIndex = n.index + 1;
 			if(newIndex < arrays[n.array].length) {
-				pq.add(new PQNode(n.array, newIndex, arrays[n.array][newIndex]));
+				pq.add(new PQNode(n.array, newIndex, arrays[n.array][newIndex])); 
 			}
 		}
 		

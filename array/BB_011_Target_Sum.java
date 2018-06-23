@@ -3,7 +3,7 @@ package array;
 import java.util.Arrays;
 
 /**
- * BB.Array.011.1 Target sum
+ * BB.Array.011 Target sum
  * 
  * Question : Given an unsorted array of nonnegative integers, find a
  * continuous subarray which adds to a given number.
@@ -15,7 +15,7 @@ import java.util.Arrays;
  * Output: {}
  * 
  */
-public class BB_011_1_Target_Sum {
+public class BB_011_Target_Sum {
 
 	public static int[] targetSum(int[] arr, int sum) {
 		int currentSum = 0;

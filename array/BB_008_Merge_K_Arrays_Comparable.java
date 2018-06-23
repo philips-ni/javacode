@@ -14,7 +14,7 @@ import java.util.PriorityQueue;
  * merge({{1, 4, 7},{2, 5, 8},{3, 6, 9}}) = {1, 2, 3, 4, 5, 6, 7, 8, 9}
  * 
  */
-public class BB_008_Merge_K_Arrays {
+public class BB_008_Merge_K_Arrays_Comparable {
 
 	private class pqNode implements Comparable<pqNode> {
 		int row, col, value;
@@ -41,7 +41,7 @@ public class BB_008_Merge_K_Arrays {
 		int size = 0;
 		for (int i = 0; i < arrays.length; i++) {
 			size += arrays[i].length;
-			if (arrays[0].length > 0) {
+			if (arrays[i].length > 0) {
 				pq.add(new pqNode(i, 0, arrays[i][0]));
 			}
 		}
@@ -62,7 +62,7 @@ public class BB_008_Merge_K_Arrays {
 	
 	public static void main(String[] args) {
 		int[][] mkArray = { { 1, 4, 7 }, { 2, 5, 8 }, { 3, 6, 9 } };
-		BB_008_Merge_K_Arrays as = new BB_008_Merge_K_Arrays();
+		BB_008_Merge_K_Arrays_Comparable as = new BB_008_Merge_K_Arrays_Comparable();
 		int[] mkArrayResult = as.mergeKArrays(mkArray);
 		System.out.println(Arrays.toString(mkArrayResult));
 	}

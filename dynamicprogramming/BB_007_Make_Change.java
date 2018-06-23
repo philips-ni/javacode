@@ -50,7 +50,7 @@ public class BB_007_Make_Change {
 		if (num <= 0 && change >= 1)
 			return 0;
 
-		// count solutions including coins[num-1] and excluding coins[num-1]
+		// count solutions excluding coins[num-1] and including at least one coins[num-1]
 		return makeChanges(coins, num - 1, change) + makeChanges(coins, num, change - coins[num - 1]);
 	}
 

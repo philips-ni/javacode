@@ -1,4 +1,4 @@
-package array;
+package crackcode;
 
 /**
  * CC.1.1 Implement an algorithm to determine if a string has all unique

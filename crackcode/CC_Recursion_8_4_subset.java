@@ -10,15 +10,15 @@ import java.util.Arrays;
  *
  */
 public class CC_Recursion_8_4_subset {
-
-	private ArrayList<Integer[]> results = new ArrayList<Integer[]>();
 	
-	public void subset(int[] arr) {
+	public static ArrayList<Integer[]> subset(int[] arr) {
+		ArrayList<Integer[]> results = new ArrayList<Integer[]>();
 		Integer[] subset = new Integer[arr.length];
-		getSubset(arr, subset, 0);
+		getSubset(arr, results, subset, 0);
+		return results;
 	}
 
-	private void getSubset(int[] arr, Integer[] subset, int index) {
+	private static void getSubset(int[] arr, ArrayList<Integer[]> results, Integer[] subset, int index) {
 
 		if (index == arr.length) {
 			// got one subset
@@ -26,24 +26,52 @@ public class CC_Recursion_8_4_subset {
 		} else {
 			// select current element
 			subset[index] = arr[index];
-			getSubset(arr, subset, index + 1);
+			getSubset(arr, results,subset, index + 1);
 
 			// not select current element
 			subset[index] = null;
-			getSubset(arr, subset, index + 1);
+			getSubset(arr, results,subset, index + 1);
 		}
 	}
 
-	public void printResults() {
+	public static void printResults(ArrayList<Integer[]> results) {
 		for(Integer[] result:results) {
 			System.out.println(Arrays.toString(result));
 		}
 	}
 	
+	// Print all subsets of given set[]
+    static void printSubsets(char set[])
+    {
+        int n = set.length;
+ 
+        // Run a loop for printing all 2^n
+        // subsets one by one
+        for (int i = 0; i < (1<<n); i++)
+        {
+            System.out.print("{ ");
+ 
+            // Print current subset
+            for (int j = 0; j < n; j++)
+ 
+                // (1<<j) is a number with jth bit 1
+                // so when we 'and' them with the
+                // subset number we get which numbers
+                // are present in the subset and which
+                // are not
+                if ((i & (1 << j)) > 0)
+                    System.out.print(set[j] + " ");
+ 
+            System.out.println("}");
+        }
+    }
+	
 	public static void main(String[] args) {
-		CC_Recursion_8_4_subset test = new CC_Recursion_8_4_subset();
 		int[] arr = { 1, 2, 3 };
-		test.subset(arr);
-		test.printResults();
+		ArrayList<Integer[]> results = subset(arr);
+		printResults(results);
+		
+		char set[] = {'a', 'b', 'c'};
+        printSubsets(set);
 	}
 }

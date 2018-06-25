@@ -18,9 +18,8 @@ public class Bit_2_10_CLosest_Integer {
 			int previous_bit = (x >> (i + 1)) & 1;
 			if ((current_bit ^ previous_bit) == 1) {
 
-				// flip each bit
-				x = x ^ (1 << i);
-				x = x ^ (1 << i + 1);
+				x = x ^ (1 << i); // flip current bit
+				x = x ^ (1 << i + 1); // flip previous bit
 				return x;
 			}
 		}

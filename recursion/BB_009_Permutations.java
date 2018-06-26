@@ -62,10 +62,11 @@ public class BB_009_Permutations {
 		return results;
 	}
 
+	@SuppressWarnings("unchecked")
 	private static void permute(int[] nums, ArrayList<Integer> temp, ArrayList<ArrayList<Integer>> results) {
 		if (temp.size() == nums.length) {
 			System.out.println(temp);
-			results.add(temp);
+			results.add((ArrayList<Integer>)temp.clone());
 		}
 
 		for (int i = 0; i < nums.length; i++) {
@@ -75,7 +76,6 @@ public class BB_009_Permutations {
 				temp.remove(temp.size() - 1);
 			}
 		}
-
 	}
 
 	public static void main(String[] args) {

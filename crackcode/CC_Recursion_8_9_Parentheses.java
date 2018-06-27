@@ -1,5 +1,6 @@
 package crackcode;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 /**
@@ -21,6 +22,7 @@ public class CC_Recursion_8_9_Parentheses {
 		HashSet<String> set = new HashSet<String>();
 
 		if (n == 0) {
+			System.out.println(set);
 			set.add("");
 		} else {
 			// get parentheses of n-1 pairs
@@ -49,11 +51,32 @@ public class CC_Recursion_8_9_Parentheses {
 		return s1 + "()" + s2;
 	}
 
+	public static ArrayList<String> generateParens_1(int n) {
+		ArrayList<String> results = new ArrayList<String>();
+		generate(results, "", 0, 0, n);
+		return results;
+	}
+
+	private static void generate(ArrayList<String> results, String cur, int open, int close, int max) {
+		if (cur.length() == max * 2) {
+			results.add(cur);
+			return;
+		}
+
+		if (open < max)
+			generate(results, cur + "(", open + 1, close, max);
+		if (close < open)
+			generate(results, cur + ")", open, close + 1, max);
+
+	}
+
 	public static void main(String[] args) {
 		HashSet<String> set = generateParens(3);
 		for (String s : set) {
 			System.out.println(s);
 		}
+		System.out.println("Method 2:");
+		System.out.println(generateParens_1(3));
 	}
 
 }

@@ -23,6 +23,7 @@ public class CC_Recursion_8_4_subset {
 		if (index == arr.length) {
 			// got one subset
 			results.add(subset.clone());
+			System.out.println(Arrays.toString(subset));
 		} else {
 			// select current element
 			subset[index] = arr[index];
@@ -69,7 +70,7 @@ public class CC_Recursion_8_4_subset {
 	public static void main(String[] args) {
 		int[] arr = { 1, 2, 3 };
 		ArrayList<Integer[]> results = subset(arr);
-		printResults(results);
+		//printResults(results);
 		
 		char set[] = {'a', 'b', 'c'};
         printSubsets(set);

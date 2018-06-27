@@ -22,13 +22,13 @@ public class CC_Recursion_8_9_Parentheses {
 		HashSet<String> set = new HashSet<String>();
 
 		if (n == 0) {
-			System.out.println(set);
 			set.add("");
 		} else {
 			// get parentheses of n-1 pairs
 			HashSet<String> prev = generateParens(n - 1);
 
 			for (String p : prev) {
+				set.add("()" + p);
 				for (int i = 0; i < p.length(); i++) {
 					// insert () inside existing pair of parentheses
 					if (p.charAt(i) == '(') {
@@ -37,7 +37,6 @@ public class CC_Recursion_8_9_Parentheses {
 									// duplicates
 					}
 				}
-				set.add("()" + p);
 			}
 		}
 

@@ -10,6 +10,36 @@ package crackcode;
  */
 public class CC_16_9_Operations {
 
+	public static int sum(int a, int b) {
+		if (b == 0)
+			return a;
+		int sum = a;
+		while (b != 0) {
+			sum = a ^ b; // partial sum without carry bits
+			b = (a & b) << 1; // carry bits
+			a = sum; // save partial sum in a for next loop
+		}
+		return sum;
+	}
+
+	public static int sum_recur(int a, int b) {
+		if (b == 0)
+			return a;
+		int partialSum = a ^ b;
+		int carry = (a & b) << 1;
+		return sum_recur(partialSum, carry);
+	}
+	
+	public static int minus_1(int a,int b){
+		int minus_b = sum(~b,1);
+		return sum(a,minus_b);
+	}
+	
+	public static int minus_2(int a, int b) {
+		int minus_b = ~b+1;
+		return a+minus_b;
+	}
+	
 	public static int minus(int a, int b) {
 		return a + negate(b); // a - b = a + (-1)*b
 	}
@@ -73,6 +103,8 @@ public class CC_16_9_Operations {
 
 	public static void main(String[] args) {
 		System.out.println(minus(10, 8));
+		System.out.println(minus_1(10, 8));
+		System.out.println(minus_2(10, 8));
 		System.out.println(multiply(10, 8));
 		System.out.println(divide(10, 8));
 	}

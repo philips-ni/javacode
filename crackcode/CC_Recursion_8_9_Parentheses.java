@@ -58,6 +58,7 @@ public class CC_Recursion_8_9_Parentheses {
 	}
 
 	private static void generate(ArrayList<String> results, String cur, int open, int close, int max) {
+		// System.out.println(cur + "" + open + " " + close);
 		if (cur.length() == max * 2) {
 			results.add(cur);
 			return;
@@ -76,7 +77,7 @@ public class CC_Recursion_8_9_Parentheses {
 			System.out.println(s);
 		}
 		System.out.println("Method 2:");
-		System.out.println(generateParens_1(3));
+		System.out.println(generateParens_1(2));
 	}
 
 }

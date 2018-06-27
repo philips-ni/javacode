@@ -7,7 +7,7 @@ package gitbook;
  * its numeric value.
  *
  */
-public class Bit_2_11_Spreadsheet_Decoding {
+public class Bit_2_11_Spreadsheet_Decoding_Encoding {
 
 	public static int decoding(String column) {
 
@@ -21,9 +21,21 @@ public class Bit_2_11_Spreadsheet_Decoding {
 		}
 		return value;
 	}
+	
+	public static String encoding(int num) {
+
+		StringBuilder sb = new StringBuilder();
+		while(num>0){
+			int digit = num %26;
+			sb.append((char)('A'+digit-1));
+			num = num/10;
+		}
+		return sb.reverse().toString();
+	}
 
 	public static void main(String[] args) {
 		System.out.println(decoding("AA"));
 		System.out.println(decoding("Z"));
+		System.out.println(encoding(27));
 	}
 }
